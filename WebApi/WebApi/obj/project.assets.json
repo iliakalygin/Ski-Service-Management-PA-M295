@@ -3926,11 +3926,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Ilia Kalygin\\OneDrive - ipso! Bildung\\IBZ\\23_24\\Unterricht\\Modul 295\\Praxisarbeit\\M295PA\\WebApi\\WebApi.csproj",
+      "projectUniqueName": "C:\\Users\\Ilia Kalygin\\Source\\Repos\\PA-M295\\WebApi\\WebApi\\WebApi.csproj",
       "projectName": "WebApi",
-      "projectPath": "C:\\Users\\Ilia Kalygin\\OneDrive - ipso! Bildung\\IBZ\\23_24\\Unterricht\\Modul 295\\Praxisarbeit\\M295PA\\WebApi\\WebApi.csproj",
+      "projectPath": "C:\\Users\\Ilia Kalygin\\Source\\Repos\\PA-M295\\WebApi\\WebApi\\WebApi.csproj",
       "packagesPath": "C:\\Users\\Ilia Kalygin\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Ilia Kalygin\\OneDrive - ipso! Bildung\\IBZ\\23_24\\Unterricht\\Modul 295\\Praxisarbeit\\M295PA\\WebApi\\obj\\",
+      "outputPath": "C:\\Users\\Ilia Kalygin\\Source\\Repos\\PA-M295\\WebApi\\WebApi\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
