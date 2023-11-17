@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jetstream-Service Ski-Service Anmeldung</title>
+    <link rel="stylesheet" href="Styles/style.css">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <script src="script.js"></script>
+</head>
+<body>
+
+    <header>
+
+
+        <nav class="navbar navbar-expand-lg bg-body-tertiary bg-light navbar-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="index.html"><strong>Home</strong></a>
+                <a class="navbar-brand" href="dienste.html">Dienste</a>
+                <a class="navbar-brand" href="anmeldung.html">Anmeldung</a>
+                <a class="navbar-brand" href="kontakt.html">Kontakt</a>
+        
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="navbar-brand" href="login.html">Login</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+
+    </header>
+
+
+
+
+<div class="container mt-4">
+    <div id="ergebnisAlert" class="alert alert-success d-none" role="alert">
+        <!-- Ergebnis wird hier angezeigt -->
+    </div>
+</div>
+
+<div class="container mt-5">
+    <form id="serviceForm">
+        <div class="form-group">
+            <label for="customerName">Kundenname:</label>
+            <input type="text" class="form-control" id="customerName" required>
+        </div>
+
+        <div class="form-group">
+            <label for="email">E-Mail:</label>
+            <input type="email" class="form-control" id="email" required>
+        </div>
+
+        <div class="form-group">
+            <label for="phone">Telefon:</label>
+            <input type="tel" class="form-control" id="phone" required>
+        </div>
+
+        <div class="form-group">
+            <label for="priority">Priorität:</label>
+            <select class="form-control" id="priority">
+                <option value="12">Tief</option>
+                <option value="7" selected>Standard</option>
+                <option value="5">Express</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="serviceType">Dienstleistung:</label>
+            <select class="form-control" id="serviceType">
+                <option>Kleiner Service</option>
+                <option>Grosser Service</option>
+                <option>Rennski-Service</option>
+                <option>Bindung montieren und einstellen</option>
+                <option>Fell zuschneiden</option>
+                <option>Heisswachsen</option>
+            </select>
+        </div>
+
+        <button type="submit" id="SubmitButtonAnmeldung" class="btn btn-primary">Anmelden</button>
+    </form>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="Scripts/script.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+<footer class="bg-light text-black text-center p-3">        
+    <p class="footer_text">©2023 Oberdorf IT</p>
+</footer>
+
+</html>

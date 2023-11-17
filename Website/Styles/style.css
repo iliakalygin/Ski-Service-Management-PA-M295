@@ -1,0 +1,67 @@
+
+body{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* Stilisierung der Landing Page */
+.container {
+    margin-top: 20px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.img-fluid {
+    max-width: 100%;
+    height: auto;
+}
+
+
+footer {
+    margin-top: auto;
+}
+
+.footer_text {
+    display: flex;
+    justify-content: center;
+}
+
+.landing_page {
+    background-image: url('../images/download.jpg'); /* Replace 'images/download.jpg' with the correct path to your image */
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 100vh;
+    
+}
+
+
+.landingpage_text {
+    color: #fff;
+    text-shadow: 3px 3px 5px black;
+    text-align: center; /* Center-align text horizontally */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center-align text vertically */
+    height: 50vh; /* Set the height to 50% of the viewport height (first half of the screen) */
+}
+
+
+
+.login-container {
+    width: 100%;
+    max-width: 400px;
+    margin: auto;
+    padding: 20px;
+}
+
+.data-block {
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+    padding: 10px;
+  }
+  

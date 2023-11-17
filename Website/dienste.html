@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="de">
+ <head>
+  <meta charset="utf-8"/>
+  <title>
+   Dienste
+  </title>
+  <!-- Bootstrap CSS -->
+  <link href="Styles/style.css" rel="stylesheet"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <style>
+   /* Custom CSS to fix the footer at the bottom */
+    body {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    .content {
+      flex: 1;
+    }
+  </style>
+ </head>
+ <body>
+  <header>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary bg-light navbar-light">
+      <div class="container-fluid">
+          <a class="navbar-brand" href="index.html"><strong>Home</strong></a>
+          <a class="navbar-brand" href="dienste.html">Dienste</a>
+          <a class="navbar-brand" href="anmeldung.html">Anmeldung</a>
+          <a class="navbar-brand" href="kontakt.html">Kontakt</a>
+  
+          <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav ml-auto">
+                  <li class="nav-item">
+                      <a class="navbar-brand" href="login.html">Login</a>
+                  </li>
+              </ul>
+          </div>
+      </div>
+  </nav>
+  </header>
+  <!-- Bootstrap JS (optional) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js">
+  </script>
+  <div class="container mt-5">
+   <div class="service-div mb-4">
+    <button class="btn btn-primary select-service-button" data-service="Kleiner Service" onclick="localStorage.setItem('selectedService', 'Kleiner Service'); window.location.href='anmeldung.html';">
+      Kleiner Service
+  </button>
+    <p>
+      <br>
+     Ideal für die allgemeine Wartung und kleinere Reparaturen.
+    </p>
+  
+   </div>
+   <div class="service-div mb-4">
+    <button class="btn btn-primary select-service-button" data-service="Grosser Service" onclick="localStorage.setItem('selectedService', 'Grosser Service'); window.location.href='anmeldung.html';">
+      Grosser Service
+  </button>
+    <p>
+      <br>
+     Eine umfassende Überholung, inklusive Schleifen, Wachsen und mehr.
+    </p>
+    
+   </div>
+   <div class="service-div mb-4">
+    <button class="btn btn-primary select-service-button" data-service="Rennski-Service" onclick="localStorage.setItem('selectedService', 'Rennski-Service'); window.location.href='anmeldung.html';">
+      Rennski-Service
+  </button>
+    <p>
+      <br>
+     Speziell für Rennskifahrer, inklusive speziellen Wachsen und Tuning-Optionen.
+    </p>
+    
+   </div>
+   <div class="service-div mb-4">
+    <button class="btn btn-primary select-service-button" data-service="Bindung montieren und einstellen" onclick="localStorage.setItem('selectedService', 'Bindung montieren und einstellen'); window.location.href='anmeldung.html';">
+      Bindung montieren und einstellen
+  </button>
+    <p>
+      <br>
+     Wir montieren und justieren Ihre Skibindungen für optimale Performance und Sicherheit.
+    </p>
+    
+   </div>
+   <div class="service-div mb-4">
+    <button class="btn btn-primary select-service-button" data-service="Fell zuschneiden" onclick="localStorage.setItem('selectedService', 'Fell zuschneiden'); window.location.href='anmeldung.html';">
+      Fell zuschneiden
+  </button>
+    <p>
+      <br>
+     Passgenaues Zuschneiden von Steigfellen für Tourenski.
+    </p>
+
+   </div>
+   <div class="service-div mb-4">
+    <button class="btn btn-primary select-service-button" data-service="Heisswachsen" onclick="localStorage.setItem('selectedService', 'Heisswachsen'); window.location.href='anmeldung.html';">
+      Heisswachsen
+  </button>
+    <p>
+      <br>
+     Heisswachsbehandlung für verbesserte Gleiteigenschaften.
+    </p>
+    
+   </div>
+  </div>
+    <!-- Footer -->
+    <footer class="bg-light text-black text-center p-3">
+      <p class="footer_text">
+       ©2023 Oberdorf IT
+      </p>
+     </footer>
+ </body>
+</html>
