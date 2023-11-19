@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using WebApi;
 
@@ -13,18 +14,18 @@ public class OrderController : ControllerBase
         _context = context;
     }
 
-    // GET by ID: api/Order/{id}
-    [HttpGet("{id}")]
-    public async Task<ActionResult<Order>> GetOrder(int id)
+    // Get All Orders
+    [HttpGet]
+    public async Task<ActionResult<IEnumerable<Order>>> GetAllOrders()
     {
-        var order = await _context.ServiceOrders.FindAsync(id);
+        var orders = await _context.ServiceOrders.ToListAsync();
 
-        if (order == null)
+        if (orders == null || orders.Count == 0)
         {
             return NotFound();
         }
 
-        return order;
+        return orders;
     }
 
 
@@ -39,7 +40,7 @@ public class OrderController : ControllerBase
         _context.ServiceOrders.Add(order);
         await _context.SaveChangesAsync();
 
-        return CreatedAtAction(nameof(GetOrder), new { id = order.OrderID }, order);
+        return CreatedAtAction(nameof(GetAllOrders), new { id = order.OrderID }, order);
     }
 
 

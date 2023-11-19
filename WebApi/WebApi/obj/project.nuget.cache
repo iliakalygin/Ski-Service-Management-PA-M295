@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "2yWJ8WkMNXzSUc18kWq2QEqIR3K0H5wy6pguxG6aSRLzZTSoPfs0/YbYOtKBRrl8zUW0lGfTJa5o3zGTTVGT4g==",
+  "dgSpecHash": "1YjnksAgkSEc2Kmlp1aMkdsKfVLNys+qKr5wAQt5JlZTeA4BUsN74zaSvLYgWx8IL2EUDczFUJm66Yq0vO36dw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Ilia Kalygin\\Source\\Repos\\PA-M295\\WebApi\\WebApi\\WebApi.csproj",
+  "projectFilePath": "C:\\Users\\Ilia Kalygin\\Documents\\GitHub\\PA-M295\\WebApi\\WebApi\\WebApi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Ilia Kalygin\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\Ilia Kalygin\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",

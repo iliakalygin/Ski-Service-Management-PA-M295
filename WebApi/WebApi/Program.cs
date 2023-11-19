@@ -7,6 +7,22 @@ using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
+
+// CORS fixer
+builder.Services.AddCors(options =>
+{
+    options.AddDefaultPolicy(
+        policy =>
+        {
+            policy.AllowAnyOrigin()
+                    .AllowAnyMethod()
+                    .AllowAnyHeader();
+        });
+});
+
+
+
+
 // Hinzufügen von Diensten zum Container.
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
@@ -28,6 +44,9 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+
+app.UseCors();
+
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
@@ -35,8 +54,3 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
-
-
-
-
-// Hello 

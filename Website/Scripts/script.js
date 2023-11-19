@@ -25,9 +25,6 @@ function insert(event) {
     ergebnisAlert.classList.add('alert-success');
     ergebnisAlert.innerHTML = `<h2>Vielen Dank, ${name}!</h2><br><p>Ihr Auftrag kann am <strong>${endDateInGerman}</strong> abgeholt werden.</p>`;
     ergebnisAlert.classList.remove('d-none');
-
-
-
     
     var data = {
         name: name,
@@ -38,32 +35,6 @@ function insert(event) {
         create_date: startDate.toISOString(),
         pickup_date: endDate.toISOString()
     };
-
-    var data_post = {
-        customerName: name,
-        customerEmail: email,
-        customerPhone: phone,
-        priority: priority,
-        serviceType: service,
-        createDate: startDate.toISOString(),
-        pickupDate: endDate.toISOString(),
-        status: 'Offen'
-    };
-    
-    
-    fetch('http://localhost:5241/Order', {
-    method: 'POST',
-    body: JSON.stringify(data_post),y
-    headers: {
-        'Content-type': 'application/json; charset=UTF-8',
-    },
-    })
-    .then((response) => response.json())
-    .then((json) => finish(json))
-    .catch((error) => console.error('Error:', error));
-
-
-
 }
 
 

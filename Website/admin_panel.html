@@ -52,39 +52,72 @@
 
 
 <script>
-    // Pfad zur Ihrer JSON-Datei
-    var jsonFileUrl = 'server/data/registration.json';
+    document.addEventListener('DOMContentLoaded', function () {
+        // API endpoint URL
+        var apiUrl = 'http://localhost:5241/Order'; // Replace with the actual API URL
 
-    fetch(jsonFileUrl)
-    .then(response => response.json())
-    .then(jsonData => {
-        var container = document.getElementById('data-container');
-        container.className = 'container mt-4';
+        fetch(apiUrl)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(apiData => {
+                var container = document.getElementById('data-container');
+                container.className = 'container mt-4';
 
-        jsonData.forEach(function(item) {
-            var card = document.createElement('div');
-            card.className = 'card mb-3';
+                // Check if apiData is an array and has items
+                if (Array.isArray(apiData) && apiData.length) {
+                    apiData.forEach(function (item) {
+                        // Create and append the card only if item has data
+                        if (item && typeof item === 'object') {
+                            var card = document.createElement('div');
+                            card.className = 'card mb-3';
 
-            card.innerHTML = `
-                <div class="card-header">
-                    Name: ${item.name}
-                </div>
-                <div class="card-body">
-                    <h5 class="card-title">${item.service}</h5>
-                    <p class="card-text">Email: ${item.email}</p>
-                    <p class="card-text">Telefon: ${item.phone}</p>
-                    <p class="card-text">Priorität: ${item.priority}</p>
-                    <p class="card-text">Dienstleistung: ${item.service}</p>
-                    <p class="card-text">Erstellungsdatum: ${new Date(item.create_date).toLocaleDateString()}</p>
-                    <p class="card-text">Abholdatum: ${new Date(item.pickup_date).toLocaleDateString()}</p>
-                </div>
-            `;
+                            // Use a function to safely get the property or return a placeholder
+                            function getPropertyOrDefault(obj, prop, defaultValue) {
+                                return obj.hasOwnProperty(prop) ? obj[prop] : defaultValue;
+                            }
 
-            container.appendChild(card);
-        });
-    })
-    .catch(error => console.error('Fehler beim Laden der JSON-Datei:', error));
-</script>
+                            // Use the function to safely format dates or return a placeholder
+                            function formatDate(dateString) {
+                                var date = new Date(dateString);
+                                return isNaN(date.getTime()) ? 'Invalid Date' : date.toLocaleDateString();
+                            }
+
+                            card.innerHTML = `
+                                <div class="card-header">
+                                    Name: ${item.customerName}
+                                </div>
+                                <div class="card-body">
+                                    <h4 class="card-title">${item.serviceType}</h4>
+                                    <p class="card-text">Email: ${item.customerEmail}</p>
+                                    <p class="card-text">Telefon: ${item.customerPhone}</p>
+                                    <p class="card-text">Priorität: ${item.priority}</p>
+                                    <p class="card-text">Dienstleistung: ${item.serviceType}</p>
+                                    <p class="card-text">Erstellungsdatum: ${new Date(item.createDate).toLocaleDateString()}</p>
+                                    <p class="card-text">Abholdatum: ${new Date(item.pickupDate).toLocaleDateString()}</p>
+                                    <p class="card-text">Status: ${item.status}</p>
+
+                                </div>
+                            `;
+
+                            container.appendChild(card);
+                        }
+                    });
+                } else {
+                    // Handle the case where apiData is not an array or is empty
+                    container.innerText = 'No data available.';
+                }
+            })
+            .catch(error => {
+                console.error('Fehler beim Laden der API-Daten:', error);
+                // Display the error message to the user
+                var container = document.getElementById('data-container');
+                container.innerText = 'Error loading data.';
+            });
+    });
 </script>
 
 
