@@ -44,5 +44,54 @@ public class OrderController : ControllerBase
     }
 
 
-    // Weitere Methoden für PUT, DELETE usw.
+    // PUT: api/ServiceOrder/5
+    [HttpPut("{id}")]
+    public IActionResult PutServiceOrder(int id, Order serviceOrder)
+    {
+        if (id != serviceOrder.OrderID)
+        {
+            return BadRequest();
+        }
+
+        _context.Entry(serviceOrder).State = EntityState.Modified;
+
+        try
+        {
+            _context.SaveChanges();
+        }
+        catch (DbUpdateConcurrencyException)
+        {
+            if (!ServiceOrderExists(id))
+            {
+                return NotFound();
+            }
+            else
+            {
+                throw;
+            }
+        }
+
+        return NoContent();
+    }
+
+    private bool ServiceOrderExists(int id)
+    {
+        return _context.ServiceOrders.Any(e => e.OrderID == id);
+    }
+
+    // DELETE: api/ServiceOrder/5
+    [HttpDelete("{id}")]
+    public IActionResult DeleteServiceOrder(int id)
+    {
+        var serviceOrder = _context.ServiceOrders.Find(id);
+        if (serviceOrder == null)
+        {
+            return NotFound();
+        }
+
+        _context.ServiceOrders.Remove(serviceOrder);
+        _context.SaveChanges();
+
+        return NoContent();
+    }
 }
