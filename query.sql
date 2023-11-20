@@ -20,7 +20,8 @@ BEGIN
         ServiceType NVARCHAR(100),
         CreateDate DATETIME,
         PickupDate DATETIME,
-        Status NVARCHAR(50) DEFAULT 'Offen'
+        Status NVARCHAR(50) DEFAULT 'Offen',
+		Comment NVARCHAR(100) DEFAULT ''
     );
 END
 GO

@@ -11,5 +11,6 @@
         public DateTime CreateDate { get; set; }
         public DateTime PickupDate { get; set; }
         public string Status { get; set; } = "Offen";
+        public string Comment { get; set; } = "";
     }
 }

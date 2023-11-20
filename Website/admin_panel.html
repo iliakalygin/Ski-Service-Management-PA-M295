@@ -53,6 +53,43 @@
 
 <script>
 
+    function updateOrder(orderID) {
+        // Sammeln Sie die aktualisierten Daten aus den Input-Feldern
+        var updatedData = {
+            orderID: orderID,
+            customerName: document.querySelector(`#order-${orderID} .customer-name-input`).value,
+            customerEmail: document.querySelector(`#order-${orderID} .customer-email-input`).value,
+            customerPhone: document.querySelector(`#order-${orderID} .customer-phone`).value,
+            priority: document.querySelector(`#order-${orderID} .priority`).value,
+            serviceType: document.querySelector(`#order-${orderID} .service-type`).value,
+            createDate: new Date(document.querySelector(`#order-${orderID} .create-date`).value).toISOString(),
+            pickupDate: new Date(document.querySelector(`#order-${orderID} .pickup-date`).value).toISOString(),
+            status: document.querySelector(`#order-${orderID} .status`).value,
+            comment: document.querySelector(`#order-${orderID} .comment`).value
+        };
+
+        // Senden Sie die PUT-Anfrage
+        fetch(`http://localhost:5241/Order/${orderID}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(updatedData)
+        })
+        .then(response => {
+            if (response.ok) {
+                alert('Bestellung erfolgreich aktualisiert');
+                location.reload(); // Die Seite neu laden, um die aktualisierten Daten anzuzeigen
+            } else {
+                throw new Error('Fehler beim Aktualisieren der Bestellung');
+            }
+        })
+        .catch(error => {
+            console.error('Fehler:', error);
+            alert('Fehler beim Aktualisieren der Bestellung');
+        });
+    }
+
     function deleteOrder(orderID) {
             fetch(`http://localhost:5241/Order/${orderID}`, {
                 method: 'DELETE'
@@ -107,19 +144,21 @@
                             }
 
                             card.innerHTML = `
-                                <div class="card-header">
-                                    Name: ${item.customerName}
+                                <div id="order-${item.orderID}" class="card-header">
+                                    Name: <input type="text" class="form-control customer-name-input" value="${item.customerName}">
                                 </div>
-                                <div class="card-body">
+                                <div id="order-${item.orderID}" class="card-body">
                                     <h4 class="card-title">${item.serviceType}</h4>
-                                    <p class="card-text">Email: ${item.customerEmail}</p>
-                                    <p class="card-text">Telefon: ${item.customerPhone}</p>
-                                    <p class="card-text">Priorität: ${item.priority}</p>
-                                    <p class="card-text">Dienstleistung: ${item.serviceType}</p>
-                                    <p class="card-text">Erstellungsdatum: ${new Date(item.createDate).toLocaleDateString()}</p>
-                                    <p class="card-text">Abholdatum: ${new Date(item.pickupDate).toLocaleDateString()}</p>
-                                    <p class="card-text">Status: ${item.status}</p>
+                                    <p class="card-text">Email: <input type="email" class="form-control customer-email-input" value="${item.customerEmail}"></p>
+                                    <p class="card-text">Telefon: <input type="tel" class="form-control customer-phone" value="${item.customerPhone}"></p>
+                                    <p class="card-text">Priorität: <input type="text" class="form-control priority" value="${item.priority}"></p>
+                                    <p class="card-text">Dienstleistung: <input type="text" class="form-control service-type" value="${item.serviceType}"></p>
+                                    <p class="card-text">Erstellungsdatum: <input type="date" class="form-control create-date" value="${new Date(item.createDate).toISOString().split('T')[0]}"></p>
+                                    <p class="card-text">Abholdatum: <input type="date" class="form-control pickup-date" value="${new Date(item.pickupDate).toISOString().split('T')[0]}"></p>
+                                    <p class="card-text">Status: <input type="text" class="form-control status" value="${item.status}"></p>
+                                    <p class="card-text">Kommentar: <input type="text" class="form-control comment" value="${item.comment}"></p>
                                     <button class="btn btn-danger" onclick="deleteOrder(${item.orderID})">Delete</button>
+                                    <button class="btn btn-primary" onclick="updateOrder(${item.orderID})">Update</button>
                                 </div>
                             `;
 
@@ -135,7 +174,13 @@
                 console.error('Fehler beim Laden der API-Daten:', error);
                 // Display the error message to the user
                 var container = document.getElementById('data-container');
-                container.innerText = 'Error loading data.';
+                container.innerHTML = `<h3>No data available.</h3>
+                                    <style>
+                                        h3 {
+                                        text-align: center;
+                                        margin: 10%;
+                                        }
+                                    </style>`;
             });
     });
 </script>
