@@ -52,6 +52,26 @@
 
 
 <script>
+
+    function deleteOrder(orderID) {
+            fetch(`http://localhost:5241/Order/${orderID}`, {
+                method: 'DELETE'
+            })
+            .then(response => {
+                if (response.ok) {
+                    //alert('Auftrag gelöscht');
+                    location.reload()
+                } else {
+                    throw new Error('Fehler beim Löschen des Auftrags');
+                }
+            })
+            .catch(error => {
+                console.error('Fehler:', error);
+                //alert('Fehler beim Löschen des Auftrags');
+            });
+    }
+
+
     document.addEventListener('DOMContentLoaded', function () {
         // API endpoint URL
         var apiUrl = 'http://localhost:5241/Order'; // Replace with the actual API URL
@@ -99,7 +119,7 @@
                                     <p class="card-text">Erstellungsdatum: ${new Date(item.createDate).toLocaleDateString()}</p>
                                     <p class="card-text">Abholdatum: ${new Date(item.pickupDate).toLocaleDateString()}</p>
                                     <p class="card-text">Status: ${item.status}</p>
-
+                                    <button class="btn btn-danger" onclick="deleteOrder(${item.orderID})">Delete</button>
                                 </div>
                             `;
 
