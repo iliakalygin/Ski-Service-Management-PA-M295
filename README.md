@@ -8,7 +8,7 @@ Zuerst soll man die Datenbank SkiServiceManagement auf dem ```localhost``` oder 
 
 ## 2. Web Api Starten
 
-1. Navigieren Sie in den ordner WebApi und öffnenen Sie die ```M295PA.sln``` solution.
+1. Navigieren Sie in den Ordner WebApi und öffnenen Sie die ```M295PA.sln``` solution.
 2. Um die Web Api erfolgreich starten zu können, muss man zuerst sicherstellen, ob der korrekte Connectionstring in der Datei ```appsettings.json``` vorhanden ist. Hier die jweiligen Connectionstrings je nach Server:
     
    - localhost (default): ```Server=.;Database=SkiServiceManagement;Trusted_Connection=True;TrustServerCertificate=True;MultipleActiveResultSets=true```
