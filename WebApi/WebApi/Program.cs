@@ -4,9 +4,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 
-
 var builder = WebApplication.CreateBuilder(args);
-
 
 // CORS fixer
 builder.Services.AddCors(options =>
@@ -19,9 +17,6 @@ builder.Services.AddCors(options =>
                     .AllowAnyHeader();
         });
 });
-
-
-
 
 // Hinzufügen von Diensten zum Container.
 builder.Services.AddControllers();

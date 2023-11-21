@@ -17,7 +17,7 @@ public class OrderController : ControllerBase
     [HttpGet]
     public async Task<ActionResult<IEnumerable<Order>>> GetAllOrders()
     {
-        var orders = await _context.Orders.ToListAsync();
+        var orders = await _context.ServiceOrders.ToListAsync();
 
         if (orders == null || orders.Count == 0)
         {
@@ -32,7 +32,7 @@ public class OrderController : ControllerBase
     {
         order.CreateDate = DateTime.UtcNow;
 
-        _context.Orders.Add(order);
+        _context.ServiceOrders.Add(order);
         await _context.SaveChangesAsync();
 
         return CreatedAtAction(nameof(GetAllOrders), new { id = order.OrderID }, order);
@@ -65,19 +65,19 @@ public class OrderController : ControllerBase
 
     private bool ServiceOrderExists(int id)
     {
-        return _context.Orders.Any(e => e.OrderID == id);
+        return _context.ServiceOrders.Any(e => e.OrderID == id);
     }
 
     // DELETE aus api/Order/id
     [HttpDelete("{id}")]
     public IActionResult DeleteServiceOrder(int id)
     {
-        var serviceOrder = _context.Orders.Find(id);
+        var serviceOrder = _context.ServiceOrders.Find(id);
         if (serviceOrder == null)
         {
             return NotFound();
         }
-        _context.Orders.Remove(serviceOrder);
+        _context.ServiceOrders.Remove(serviceOrder);
         _context.SaveChanges();
         return NoContent();
     }
