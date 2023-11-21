@@ -17,7 +17,7 @@ public class OrderController : ControllerBase
     [HttpGet]
     public async Task<ActionResult<IEnumerable<Order>>> GetAllOrders()
     {
-        var orders = await _context.ServiceOrders.ToListAsync();
+        var orders = await _context.Orders.ToListAsync();
 
         if (orders == null || orders.Count == 0)
         {
@@ -32,7 +32,7 @@ public class OrderController : ControllerBase
     {
         order.CreateDate = DateTime.UtcNow;
 
-        _context.ServiceOrders.Add(order);
+        _context.Orders.Add(order);
         await _context.SaveChangesAsync();
 
         return CreatedAtAction(nameof(GetAllOrders), new { id = order.OrderID }, order);
@@ -40,20 +40,20 @@ public class OrderController : ControllerBase
 
     // PUT nach api/Order/id
     [HttpPut("{id}")]
-    public IActionResult PutServiceOrder(int id, Order serviceOrder)
+    public IActionResult PutOrder(int id, Order Order)
     {
-        if (id != serviceOrder.OrderID)
+        if (id != Order.OrderID)
         {
             return BadRequest();
         }
-        _context.Entry(serviceOrder).State = EntityState.Modified;
+        _context.Entry(Order).State = EntityState.Modified;
         try
         {
             _context.SaveChanges();
         }
         catch (DbUpdateConcurrencyException)
         {
-            if (!ServiceOrderExists(id))
+            if (!OrderExists(id))
             {
                 return NotFound();
             }
@@ -63,21 +63,21 @@ public class OrderController : ControllerBase
         return NoContent();
     }
 
-    private bool ServiceOrderExists(int id)
+    private bool OrderExists(int id)
     {
-        return _context.ServiceOrders.Any(e => e.OrderID == id);
+        return _context.Orders.Any(e => e.OrderID == id);
     }
 
     // DELETE aus api/Order/id
     [HttpDelete("{id}")]
-    public IActionResult DeleteServiceOrder(int id)
+    public IActionResult DeleteSOrder(int id)
     {
-        var serviceOrder = _context.ServiceOrders.Find(id);
-        if (serviceOrder == null)
+        var Order = _context.Orders.Find(id);
+        if (Order == null)
         {
             return NotFound();
         }
-        _context.ServiceOrders.Remove(serviceOrder);
+        _context.Orders.Remove(Order);
         _context.SaveChanges();
         return NoContent();
     }

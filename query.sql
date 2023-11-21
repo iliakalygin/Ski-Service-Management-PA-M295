@@ -9,9 +9,9 @@ GO
 USE SkiServiceManagement;
 GO
 
-IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'ServiceOrders') AND type in (N'U'))
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'Orders') AND type in (N'U'))
 BEGIN
-    CREATE TABLE ServiceOrders (
+    CREATE TABLE Orders (
         OrderID INT PRIMARY KEY IDENTITY(1,1),
         CustomerName NVARCHAR(100),
         CustomerEmail NVARCHAR(100),
