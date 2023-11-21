@@ -1,12 +1,21 @@
 # PA-M295 Benutzerhandbuch
 
+## Verwendete NuGet Pakete
 
-## 1. Datenbank erstellen
+- Microsoft.AspNetCore.OpenApi v7.0.7
+- Microsoft.EntityFrameworkCore v7.0.0
+- Microsoft.EntityFrameworkCore.SqlServer v7.0.0
+- Microsoft.EntityFrameworkCore.Tools v7.0.0
+- Swashbuckle.AspNetCore v7.0.0
+
+## Installation
+
+### 1. Datenbank erstellen
 
 Zuerst soll man die Datenbank SkiServiceManagement auf dem ```localhost``` oder ```localhost/SQLEXPRESS``` Server erstellen, indem man die Datei ```query.sql``` in SQL Server Management Studio ausführt.
 
 
-## 2. Web Api Starten
+### 2. Web Api Starten
 
 1. Navigieren Sie in den Ordner WebApi und öffnenen Sie die ```M295PA.sln``` solution.
 2. Um die Web Api erfolgreich starten zu können, muss man zuerst sicherstellen, ob der korrekte Connectionstring in der Datei ```appsettings.json``` vorhanden ist. Hier die jweiligen Connectionstrings je nach Server:
@@ -18,7 +27,7 @@ Zuerst soll man die Datenbank SkiServiceManagement auf dem ```localhost``` oder 
 
 ![image](https://github.com/iliakalygin/PA-M295/assets/58369822/f17bd223-e293-4a56-8560-d5fa05131a10)
 
-## 3. Webseite starten
+### 3. Webseite starten
 
 Um die website zu starten öffnen Sie die ```index.html``` Datei die sich im Website Ordner befindet.
  
@@ -35,4 +44,5 @@ Sie gelangen nun auf die Homepage von Jetstream-Service. Gehen Sie auf die Anmel
 Nach einem erfolgreichen Anmelden für einen Service, gehen Sie auf Login und loggen sich mit Username: admin Password: admin ein. Hier sehen Sie alle Aufträge und können diese ebenfalls editieren und löschen.
 
  ![image](https://github.com/iliakalygin/PA-M295/assets/58369822/ecc7e8ee-93c0-4b28-af03-b3b6342980fd)
+
 
