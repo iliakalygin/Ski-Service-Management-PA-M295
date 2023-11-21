@@ -1,0 +1,124 @@
+{
+	"info": {
+		"_postman_id": "00967399-ebf0-4388-a8fb-912df52c515e",
+		"name": "PA-M295",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29157636"
+	},
+	"item": [
+		{
+			"name": "GET *",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "accept",
+						"value": "text/plain"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:5241/Order",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5241",
+					"path": [
+						"Order"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "accept",
+						"value": "text/plain"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"orderID\": 0,\n  \"customerName\": \"Arda Dursun\",\n  \"customerEmail\": \"arda@baselstadt.ch\",\n  \"customerPhone\": \"+41761235689\",\n  \"priority\": \"Express\",\n  \"serviceType\": \"Fell zuschneiden\",\n  \"createDate\": \"2023-11-21T13:14:30.419Z\",\n  \"pickupDate\": \"2023-11-21T13:14:30.419Z\",\n  \"status\": \"Offen\",\n  \"comment\": \"\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:5241/Order",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5241",
+					"path": [
+						"Order"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT Order/10",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "accept",
+						"value": "*/*"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"orderID\": 10,\n    \"customerName\": \"Max Muster\",\n    \"customerEmail\": \"max.muster@baselstadt.ch\",\n    \"customerPhone\": \"+41761235689\",\n    \"priority\": \"Express\",\n    \"serviceType\": \"Heisswachsen\",\n    \"createDate\": \"2023-11-21T13:15:45.9068349Z\",\n    \"pickupDate\": \"2023-11-21T13:14:30.419Z\",\n    \"status\": \"Offen\",\n    \"comment\": \"\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:5241/Order/10",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5241",
+					"path": [
+						"Order",
+						"10"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE Order/11",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "accept",
+						"value": "*/*"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:5241/Order/11",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5241",
+					"path": [
+						"Order",
+						"11"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
