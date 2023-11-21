@@ -97,12 +97,12 @@ document.addEventListener('DOMContentLoaded', function () {
                                 <p class="card-text">Dienstleistung: <input type="text" class="form-control service-type" value="${item.serviceType}"></p>
                                 <p class="card-text">Erstellungsdatum: <input type="date" class="form-control create-date" value="${new Date(item.createDate).toISOString().split('T')[0]}"></p>
                                 <p class="card-text">Abholdatum: <input type="date" class="form-control pickup-date" value="${new Date(item.pickupDate).toISOString().split('T')[0]}"></p>
-                                <p class="card-text">Status: <input type="text" class="form-control status" value="${item.status}"></p>
+                                <p class="card-text">Status: (Offen, InArbeit, Abgeschlossen)<input type="text" class="form-control status" value="${item.status}"></p>
                                 <p class="card-text">Kommentar: <input type="text" class="form-control comment" value="${item.comment}"></p>
                                 <button class="btn btn-danger" onclick="deleteOrder(${item.orderID})">Delete</button>
                                 <button class="btn btn-primary" onclick="updateOrder(${item.orderID})">Update</button>
+                            </div>
                         `;
-
                         container.appendChild(card);
                     }
                 });

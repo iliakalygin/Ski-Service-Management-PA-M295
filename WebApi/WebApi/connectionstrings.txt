@@ -4,4 +4,4 @@ laptop: Server=.;Database=SkiServiceManagement;Trusted_Connection=True;TrustServ
 
 pc: Data Source=localhost\SQLEXPRESS;Initial Catalog=SkiServiceManagement;Integrated Security=True
 
-pc new: Server=.\\SQLEXPRESS;Database=SkiServiceManagement;Trusted_Connection=True;TrustServerCertificate=True;MultipleActiveResultSets=true
+pc neu: Server=.\\SQLEXPRESS;Database=SkiServiceManagement;Trusted_Connection=True;TrustServerCertificate=True;MultipleActiveResultSets=true
