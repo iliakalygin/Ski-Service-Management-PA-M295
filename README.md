@@ -23,3 +23,16 @@ Zuerst soll man die Datenbank SkiServiceManagement auf dem ```localhost``` oder 
 Um die website zu starten öffnen Sie die ```index.html``` Datei die sich im Website Ordner befindet.
  
 Sie gelangen nun auf die Homepage von Jetstream-Service. Gehen Sie auf die Anmelde Seite um sich für einen Service anzumelden.
+
+ ![image](https://github.com/iliakalygin/PA-M295/assets/58369822/b8afca63-45ad-4db4-a544-fbd57f2e1406)
+
+
+  Auf der Anmeldeseite angelangt geben Sie ihre Daten ein und wählen Sie Ihr gewünschtes Service.
+
+![image](https://github.com/iliakalygin/PA-M295/assets/58369822/ea8f54c7-9255-45d4-a03b-5bae3cf7634d)
+
+
+Nach einem erfolgreichen Anmelden für einen Service, gehen Sie auf Login und loggen sich mit Username: admin Password: admin ein. Hier sehen Sie alle Aufträge und können diese ebenfalls editieren und löschen.
+
+ ![image](https://github.com/iliakalygin/PA-M295/assets/58369822/ecc7e8ee-93c0-4b28-af03-b3b6342980fd)
+
