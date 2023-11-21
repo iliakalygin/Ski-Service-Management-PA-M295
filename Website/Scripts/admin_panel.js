@@ -53,7 +53,7 @@ function deleteOrder(orderID) {
 
 document.addEventListener('DOMContentLoaded', function () {
     // API endpoint URL
-    var apiUrl = 'http://localhost:5241/Order'; // Replace with the actual API URL
+    var apiUrl = 'http://localhost:5241/Order';
 
     fetch(apiUrl)
         .then(response => {
@@ -66,20 +66,20 @@ document.addEventListener('DOMContentLoaded', function () {
             var container = document.getElementById('data-container');
             container.className = 'container mt-4';
 
-            // Check if apiData is an array and has items
+            // Prüfen, ob apiData ein Array ist und Elemente hat
             if (Array.isArray(apiData) && apiData.length) {
                 apiData.forEach(function (item) {
-                    // Create and append the card only if item has data
+                    // Erstellen und Anhängen der Karte nur, wenn das Element Daten enthält
                     if (item && typeof item === 'object') {
                         var card = document.createElement('div');
                         card.className = 'card mb-3';
 
-                        // Use a function to safely get the property or return a placeholder
+                        // Verwenden Sie eine Funktion zum sicheren Abrufen der Eigenschaft oder geben Sie einen Platzhalter zurück
                         function getPropertyOrDefault(obj, prop, defaultValue) {
                             return obj.hasOwnProperty(prop) ? obj[prop] : defaultValue;
                         }
 
-                        // Use the function to safely format dates or return a placeholder
+                        // Verwenden Sie die Funktion, um Datumsangaben sicher zu formatieren oder einen Platzhalter zurückzugeben
                         function formatDate(dateString) {
                             var date = new Date(dateString);
                             return isNaN(date.getTime()) ? 'Invalid Date' : date.toLocaleDateString();
@@ -107,13 +107,19 @@ document.addEventListener('DOMContentLoaded', function () {
                     }
                 });
             } else {
-                // Handle the case where apiData is not an array or is empty
-                container.innerText = 'No data available.';
+                // Behandlung des Falls, dass apiData kein Array ist oder leer ist
+                container.innerHTML = `<h3>No data available.</h3>
+                                    <style>
+                                        h3 {
+                                        text-align: center;
+                                        margin: 10%;
+                                        }
+                                    </style>`;
             }
         })
         .catch(error => {
             console.error('Fehler beim Laden der API-Daten:', error);
-            // Display the error message to the user
+            // Anzeige der Fehlermeldung an den Benutzer
             var container = document.getElementById('data-container');
             container.innerHTML = `<h3>No data available.</h3>
                                 <style>
