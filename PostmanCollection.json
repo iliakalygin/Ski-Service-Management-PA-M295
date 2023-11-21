@@ -63,7 +63,7 @@
 			"response": []
 		},
 		{
-			"name": "PUT Order/10",
+			"name": "PUT Order/[id]",
 			"request": {
 				"method": "PUT",
 				"header": [
@@ -96,7 +96,7 @@
 			"response": []
 		},
 		{
-			"name": "DELETE Order/11",
+			"name": "DELETE Order/[id]",
 			"request": {
 				"method": "DELETE",
 				"header": [
