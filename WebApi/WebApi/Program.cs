@@ -44,7 +44,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-
+// CORS fixer
 app.UseCors();
 
 app.UseHttpsRedirection();

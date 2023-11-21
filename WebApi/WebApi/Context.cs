@@ -8,9 +8,6 @@ public class Context : DbContext
       : base(options)
     {
     }
-
-    // Database sets für Entitys
+    // Database
     public DbSet<Order> ServiceOrders { get; set; }
-    public DbSet<Employee> Employees { get; set; }
-
 }

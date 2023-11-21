@@ -25,13 +25,3 @@ BEGIN
     );
 END
 GO
-
-IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'Employees') AND type in (N'U'))
-BEGIN
-    CREATE TABLE Employees (
-        EmployeeID INT PRIMARY KEY IDENTITY(1,1),
-        Username NVARCHAR(50) UNIQUE,
-        PasswordHash VARBINARY(128)
-    );
-END
-GO

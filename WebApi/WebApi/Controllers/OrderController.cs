@@ -14,7 +14,7 @@ public class OrderController : ControllerBase
         _context = context;
     }
 
-    // Get All Orders
+    // GET alles von api/Order
     [HttpGet]
     public async Task<ActionResult<IEnumerable<Order>>> GetAllOrders()
     {
@@ -24,18 +24,14 @@ public class OrderController : ControllerBase
         {
             return NotFound();
         }
-
         return orders;
     }
 
-
-    // POST: api/Order
+    // POST nach api/Order
     [HttpPost]
     public async Task<ActionResult<Order>> PostOrder(Order order)
     {
-        // Initialize default values if necessary
-        order.CreateDate = DateTime.UtcNow; // Set the creation date to the current time
-        order.Status = "Offen"; // You can set a default status or use the one provided in the request
+        order.CreateDate = DateTime.UtcNow;
 
         _context.ServiceOrders.Add(order);
         await _context.SaveChangesAsync();
@@ -44,7 +40,7 @@ public class OrderController : ControllerBase
     }
 
 
-    // PUT: api/ServiceOrder/5
+    // PUT nach api/Order/id
     [HttpPut("{id}")]
     public IActionResult PutServiceOrder(int id, Order serviceOrder)
     {
@@ -52,9 +48,7 @@ public class OrderController : ControllerBase
         {
             return BadRequest();
         }
-
         _context.Entry(serviceOrder).State = EntityState.Modified;
-
         try
         {
             _context.SaveChanges();
@@ -70,7 +64,6 @@ public class OrderController : ControllerBase
                 throw;
             }
         }
-
         return NoContent();
     }
 
@@ -79,7 +72,7 @@ public class OrderController : ControllerBase
         return _context.ServiceOrders.Any(e => e.OrderID == id);
     }
 
-    // DELETE: api/ServiceOrder/5
+    // DELETE aus api/Order/id
     [HttpDelete("{id}")]
     public IActionResult DeleteServiceOrder(int id)
     {
