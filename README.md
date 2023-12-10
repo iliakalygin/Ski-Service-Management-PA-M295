@@ -1,4 +1,4 @@
-# PA-M295 Benutzerhandbuch
+# Ski-Service-Management-PA-M295 Benutzerhandbuch
 
 ## Verwendete NuGet Pakete
 
