@@ -2,7 +2,7 @@
 
 ## Dokumentation
 
-Eine genauere deokumentation des Projekts befindet sich hier: [Projektdokumentation.pdf](./Projektdokumentation.pdf)
+Eine genauere Dokumentation des Projekts befindet sich hier: [Projektdokumentation.pdf](./Projektdokumentation.pdf)
 
 
 ## Verwendete NuGet Pakete
