@@ -1,5 +1,10 @@
 # Ski-Service-Management-PA-M295 Benutzerhandbuch
 
+## Dokumentation
+
+Eine genauere deokumentation des Projekts befindet sich hier: [Projektdokumentation.pdf](./Projektdokumentation.pdf)
+
+
 ## Verwendete NuGet Pakete
 
 - Microsoft.AspNetCore.OpenApi v7.0.7
